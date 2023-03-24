@@ -16,8 +16,12 @@
 
 plugins {
     id("com.android.library")
-    id ("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.android")
+    id("maven-publish")
 }
+
+group = "com.github.mohsents"
+version = libs.versions.lib
 
 android {
     namespace = "com.mohsents.permissionmanager"
@@ -48,10 +52,40 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
+    }
 }
 
 dependencies {
     implementation(libs.androidx.core)
     implementation(libs.androidx.appcompat)
     implementation(libs.kotlin.stdlib)
+}
+
+tasks {
+    val sourcesJar by creating(Jar::class) {
+        archiveClassifier.set("sources")
+        from(android.sourceSets.getByName("main").java.srcDirs)
+    }
+
+    artifacts {
+        archives(sourcesJar)
+    }
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                groupId = "com.github.mohsents"
+                artifactId = "android-permission-manager"
+                version = "0.0.9-beta"
+                from(components["release"])
+            }
+        }
+    }
 }
