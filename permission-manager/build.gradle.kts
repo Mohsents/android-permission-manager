@@ -53,9 +53,16 @@ android {
         jvmTarget = "1.8"
     }
 
-    publishing {
-        singleVariant("release") {
-            withSourcesJar()
+    afterEvaluate {
+        publishing {
+            publications {
+                create<MavenPublication>("release") {
+                    groupId = "com.github.mohsents"
+                    artifactId = "android-permission-manager"
+                    version = "0.0.9-beta"
+                    from(components["release"])
+                }
+            }
         }
     }
 }
@@ -74,18 +81,5 @@ tasks {
 
     artifacts {
         archives(sourcesJar)
-    }
-}
-
-afterEvaluate {
-    publishing {
-        publications {
-            create<MavenPublication>("release") {
-                groupId = "com.github.mohsents"
-                artifactId = "android-permission-manager"
-                version = "0.0.9-beta"
-                from(components["release"])
-            }
-        }
     }
 }
