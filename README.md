@@ -93,7 +93,7 @@ SideEffect {
 
 ## Contact to developer
 
-- [Linkedin](https://www.linkedin.com/in/mohsents/)
+[Linkedin](https://www.linkedin.com/in/mohsents/)
 
 _Give me feedback to **developer.mohsents@gmail.com**_
 
