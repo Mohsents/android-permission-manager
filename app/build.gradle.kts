@@ -64,7 +64,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":permission-manager"))
+    implementation("com.github.Mohsents:android-permission-manager:0.0.9-beta")
     implementation(libs.kotlin.stdlib)
     implementation(libs.androidx.core)
     implementation(libs.androidx.appcompat)
