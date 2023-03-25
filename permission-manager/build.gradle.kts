@@ -70,7 +70,7 @@ afterEvaluate {
                 artifact(sourcesJar.get())
                 artifactId = "android-permission-manager"
                 groupId = "com.github.mohsents"
-                version = "0.0.9-beta"
+                version = "0.0.9"
             }
         }
     }
