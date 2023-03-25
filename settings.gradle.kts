@@ -45,4 +45,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Permission Manager"
-include(":app", ":permission-manager")
+include(":demo", ":permission-manager")

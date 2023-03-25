@@ -1,3 +1,5 @@
+import io.netty.util.ReferenceCountUtil.release
+
 /*
  * Copyright (C) 2023 Mohsents
  *
@@ -27,10 +29,6 @@ android {
     defaultConfig {
         minSdk = 21
         targetSdk = 33
-        version = libs.versions.lib
-        testFixtures {
-            enable = true
-        }
     }
 
     buildTypes {
@@ -49,6 +47,12 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
+    }
 }
 
 dependencies {
@@ -57,21 +61,13 @@ dependencies {
     implementation(libs.kotlin.stdlib)
 }
 
-val sourcesJar by tasks.registering(Jar::class) {
-    archiveClassifier.set("sources")
-    from(android.sourceSets.getByName("main").java.srcDirs)
-}
+// TODO Upload the lib in Jitpack.io
+publishing.publications {
+    register<MavenPublication>("release") {
+        groupId = "com.mohsents"
+        artifactId = "android-permission-manager"
+        version = "0.0.9"
 
-afterEvaluate {
-    publishing {
-        publications {
-            val release by publications.registering(MavenPublication::class) {
-                from(components["release"])
-                artifact(sourcesJar.get())
-                groupId = "com.github.mohsents"
-                artifactId = "android-permission-manager"
-                version = "0.0.9"
-            }
-        }
+        artifact("$buildDir/outputs/aar/bar-release.aar")
     }
 }
