@@ -91,17 +91,7 @@ SideEffect {
 }
 ```
 
-
-To add it in your project, paste the following snippet:
-```
-repositories {
-        mavenCentral()
-        maven { url "https://jitpack.io" }
-   }
-   dependencies {
-         implementation 'com.github.mohsents:android-permission-manager:0.0.9-beta'
-   }
-```
+### Currently the artifact not available on any repo. It's be available soon in the future.
 
 ## Contact to developer
 
