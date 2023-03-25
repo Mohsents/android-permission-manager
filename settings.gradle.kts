@@ -30,7 +30,7 @@ dependencyResolutionManagement {
     }
     versionCatalogs {
         create("libs") {
-            version("lib", "0.0.9-beta")
+            version("lib", "0.0.9")
             version("compose", "1.2.0")
             library("kotlin-stdlib","org.jetbrains.kotlin:kotlin-stdlib:1.8.10")
             library("androidx-core","androidx.core:core-ktx:1.9.0")

@@ -68,8 +68,8 @@ afterEvaluate {
             val release by publications.registering(MavenPublication::class) {
                 from(components["release"])
                 artifact(sourcesJar.get())
-                artifactId = "android-permission-manager"
                 groupId = "com.github.mohsents"
+                artifactId = "android-permission-manager"
                 version = "0.0.9"
             }
         }
