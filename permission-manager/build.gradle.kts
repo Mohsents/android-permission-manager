@@ -19,7 +19,7 @@ import io.netty.util.ReferenceCountUtil.release
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    id("maven-publish")
+    `maven-publish`
 }
 
 android {
@@ -28,7 +28,6 @@ android {
 
     defaultConfig {
         minSdk = 21
-        targetSdk = 33
     }
 
     buildTypes {
@@ -68,6 +67,6 @@ publishing.publications {
         artifactId = "android-permission-manager"
         version = "0.0.9"
 
-        artifact("$buildDir/outputs/aar/bar-release.aar")
+      //  artifact("$buildDir/outputs/aar/bar-release.aar")
     }
 }
