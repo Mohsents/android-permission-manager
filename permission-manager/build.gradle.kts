@@ -1,5 +1,3 @@
-import io.netty.util.ReferenceCountUtil.release
-
 /*
  * Copyright (C) 2023 Mohsents
  *
@@ -20,6 +18,7 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
     `maven-publish`
+
 }
 
 android {
@@ -66,7 +65,8 @@ publishing.publications {
         groupId = "com.mohsents"
         artifactId = "android-permission-manager"
         version = "0.0.9"
-
-      //  artifact("$buildDir/outputs/aar/bar-release.aar")
+        afterEvaluate {
+            artifact(tasks.getByName("bundleReleaseAar"))
+        }
     }
 }
