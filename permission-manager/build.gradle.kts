@@ -18,7 +18,6 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
     `maven-publish`
-
 }
 
 android {
@@ -61,12 +60,9 @@ dependencies {
 
 // TODO Upload the lib in Jitpack.io
 publishing.publications {
-    register<MavenPublication>("release") {
+    create<MavenPublication>("release") {
         groupId = "com.mohsents"
         artifactId = "android-permission-manager"
         version = "0.0.9"
-        afterEvaluate {
-            artifact(tasks.getByName("bundleReleaseAar"))
-        }
     }
 }
