@@ -26,8 +26,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven { setUrl("https://www.jitpack.io") }
     }
+
     versionCatalogs {
         create("libs") {
             version("lib", "0.0.9")

@@ -17,7 +17,6 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    `maven-publish`
 }
 
 android {
@@ -44,25 +43,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-
-    publishing {
-        singleVariant("release") {
-            withSourcesJar()
-        }
-    }
 }
 
 dependencies {
     implementation(libs.androidx.core)
     implementation(libs.androidx.appcompat)
     implementation(libs.kotlin.stdlib)
-}
-
-// TODO Upload the lib in Jitpack.io
-publishing.publications {
-    create<MavenPublication>("release") {
-        groupId = "com.mohsents"
-        artifactId = "android-permission-manager"
-        version = "0.0.9"
-    }
 }
