@@ -16,7 +16,8 @@
 
 plugins {
     id("com.android.application")
-    id ("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.android")
+    `maven-publish`
 }
 
 android {
@@ -75,4 +76,12 @@ dependencies {
     implementation(libs.compose.material3)
     implementation("androidx.compose.ui:ui")
     debugImplementation("androidx.compose.ui:ui-tooling-preview")
+}
+
+publishing.publications {
+    create<MavenPublication>("release") {
+        groupId = "com.mohsents"
+        artifactId = "android-permission-manager"
+        version = "0.0.9"
+    }
 }
