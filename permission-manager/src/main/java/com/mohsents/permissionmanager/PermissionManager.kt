@@ -16,10 +16,9 @@
 
 package com.mohsents.permissionmanager
 
-import android.os.Build
 import androidx.activity.ComponentActivity
-import androidx.annotation.RequiresApi
 import java.lang.ref.WeakReference
+import kotlin.jvm.JvmStatic
 
 @ExperimentalPermissionManagerApi
 class PermissionManager private constructor(
